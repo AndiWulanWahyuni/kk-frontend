@@ -50,10 +50,10 @@ export default function VerifyQRPage() {
 
   const isValid = result?.valid === true;
 
-  const formatToWIB = (utcDate) => {
-    if (!utcDate) return "-";
+  const formatToWIB = (dateString) => {
+    if (!dateString) return "-";
 
-    const date = new Date(utcDate);
+    const date = new Date(dateString.replace(" ", "T"));
 
     return date.toLocaleString("id-ID", {
       timeZone: "Asia/Jakarta",
