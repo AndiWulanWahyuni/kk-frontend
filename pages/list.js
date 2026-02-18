@@ -1,6 +1,16 @@
-import Sidebar from "../components/Sidebar";
-import ListKK from "../components/ListKK";
-import Topbar from "../components/Topbar";
+import dynamic from "next/dynamic";
+
+const Sidebar = dynamic(() => import("../components/Sidebar"), {
+  ssr: false,
+});
+
+const Topbar = dynamic(() => import("../components/Topbar"), {
+  ssr: false,
+});
+
+const ListKK = dynamic(() => import("../components/ListKK"), {
+  ssr: false,
+});
 
 export default function ListPage() {
   return (
