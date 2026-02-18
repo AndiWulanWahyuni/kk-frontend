@@ -50,22 +50,6 @@ export default function VerifyQRPage() {
 
   const isValid = result?.valid === true;
 
-  const formatToWIB = (dateString) => {
-    if (!dateString) return "-";
-
-    const date = new Date(dateString.replace(" ", "T"));
-
-    return date.toLocaleString("id-ID", {
-      timeZone: "Asia/Jakarta",
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-    });
-  };
-
   return (
     <div className="qr-verify-container">
       <h2>Verifikasi Keaslian Data Kartu Keluarga</h2>
@@ -91,8 +75,7 @@ export default function VerifyQRPage() {
           <p><b>Digital Signature:</b> {result.digital_signature}</p>
           <p><b>Integritas Data:</b> {result.integritas_data}</p>
           <p><b>Status Dokumen:</b> {result.status}</p>
-          <p><b>Diverifikasi Pada:</b> {formatToWIB(result.verified_at)}</p>
-
+          <p><b>Diverifikasi Pada:</b> {result.verified_at}</p>
 
           {isValid && result.data_kk && (
             <>
