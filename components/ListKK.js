@@ -10,10 +10,6 @@ const ListKK = () => {
   const pagesPerBlock = 5;
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
-
   const fetchData = useCallback(async () => {
   setLoading(true);
   try {
@@ -28,6 +24,10 @@ const ListKK = () => {
       setLoading(false);
     }
   }, [BASE_URL]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   const filteredData = dataKK.filter((item) =>
     item.doc_id?.toLowerCase().includes(searchQuery.toLowerCase())
