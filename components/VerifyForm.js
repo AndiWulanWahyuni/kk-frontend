@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export default function AdminVerifyPDF() {
   const [file, setFile] = useState(null);
